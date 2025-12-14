@@ -2,561 +2,540 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070707" />
   <title>La Patrona - Carta</title>
 
-  <!-- Fuentes parecidas al estilo del diseño -->
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
-  <!-- OJO: tu carpeta se llama CSS -->
+  <!-- Tu CSS -->
   <link rel="stylesheet" href="CSS/styles.css" />
 </head>
+
 <body>
+  <!-- Fondo decorativo (suave) -->
+  <div class="bg-deco" aria-hidden="true"></div>
 
-  <main class="book">
-
-    <!-- ===================== PÁGINA 1: HAMBURGUESAS (Tradicional + Royal Tradicional) ===================== -->
-    <div class="page-wrap">
-      <section class="page page--burger">
-        <div class="stripe-circle"></div>
-        <div class="stripe-corner"></div>
-
-        <header class="brand">
-          <h1 class="logo">La<br>Patrona</h1>
-          <div class="brand-sub">FUENTE DE SODA &amp; BROSTERÍA MARIA</div>
-        </header>
-
-        <div class="badge">
-          <div class="badge-inner">
-            <div>HAM</div><div>BUR</div><div>GUE</div><div>SAS</div>
-          </div>
+  <!-- Header sticky (tipo delivery/menú) -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">
+          <div class="logo">La<br>Patrona</div>
+          <div class="brand__sub">FUENTE DE SODA &amp; BROSTERÍA MARIA</div>
         </div>
+      </div>
 
-        <!-- papas outline -->
-        <svg class="fries" viewBox="0 0 220 220" aria-hidden="true">
-          <g fill="none" stroke="var(--gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M55 60 L55 20" />
-            <path d="M85 70 L85 18" />
-            <path d="M115 65 L115 22" />
-            <path d="M145 78 L145 18" />
-            <path d="M175 68 L175 26" />
-            <path d="M55 70 C55 70, 80 85, 110 85 C140 85, 165 70, 175 70" />
-            <path d="M55 70 L40 170 C85 200, 145 200, 190 170 L175 70" />
-          </g>
-        </svg>
+      <div class="topbar__actions">
+        <a class="phone" href="tel:+51925644551" aria-label="Llamar al 925 644 551">
+          <span class="phone__dot"></span>
+          <span>925 644 551</span>
+        </a>
+        <a class="phone" href="tel:+51947381482" aria-label="Llamar al 947 381 482">
+          <span class="phone__dot"></span>
+          <span>947 381 482</span>
+        </a>
+      </div>
+    </div>
 
-        <!-- hamburguesa grande -->
-        <svg class="burger" viewBox="0 0 520 620" aria-hidden="true">
-          <g fill="var(--gold)">
-            <path d="M55,210 C70,120 150,60 260,60 C370,60 450,120 465,210 C390,240 330,250 260,250 C190,250 130,240 55,210 Z"/>
-            <circle cx="150" cy="120" r="8"/><circle cx="190" cy="105" r="7"/><circle cx="235" cy="120" r="6"/>
-            <circle cx="285" cy="100" r="7"/><circle cx="330" cy="120" r="6"/><circle cx="360" cy="105" r="7"/>
-            <path d="M85,250 C120,285 160,300 260,300 C360,300 400,285 435,250 L435,280 C395,315 350,330 260,330 C170,330 125,315 85,280 Z"/>
-            <path d="M85,340 C125,380 175,400 260,400 C345,400 395,380 435,340 L435,375 C395,415 340,435 260,435 C180,435 125,415 85,375 Z"/>
-            <path d="M95,465 C155,490 205,505 260,505 C315,505 365,490 425,465 L425,520
-                     C425,560 390,585 350,585
-                     C340,560 330,530 315,530
-                     C300,530 295,560 290,585
-                     L230,585
-                     C225,560 220,530 205,530
-                     C190,530 180,560 170,585
-                     C130,585 95,560 95,520 Z"/>
-          </g>
-        </svg>
+    <!-- Buscador -->
+    <div class="search">
+      <div class="search__box">
+        <span class="search__icon" aria-hidden="true">🔎</span>
+        <input id="searchInput" type="search" placeholder="Buscar en la carta (ej: royal, nuggets, café...)" autocomplete="off" />
+        <button id="clearBtn" class="search__clear" type="button" aria-label="Limpiar búsqueda">✕</button>
+      </div>
+      <div id="searchHint" class="search__hint" aria-live="polite"></div>
+    </div>
 
-        <div class="content content--right">
-          <h2 class="section-title">Burguer Tradicional</h2>
+    <!-- Categorías (chips) -->
+    <nav class="cats" aria-label="Categorías">
+      <button class="chip is-active" data-target="#hamburguesas" type="button">
+        🍔 Hamburguesas
+      </button>
+      <button class="chip" data-target="#salchipapas" type="button">
+        🍟 Salchipapas
+      </button>
+      <button class="chip" data-target="#broaster" type="button">
+        🍗 Broaster
+      </button>
+      <button class="chip" data-target="#bebidas" type="button">
+        🥤 Bebidas
+      </button>
+    </nav>
+  </header>
 
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Hamb. Carne</div>
-              <div class="item-desc">(Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 5.00</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Hamb. Pollo</div>
-              <div class="item-desc">(Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 6.00</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Hamb. Chorizo</div>
-              <div class="item-desc">(Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 6.00</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Hamb. Pollo Deshilachado</div>
-              <div class="item-desc">(Papas + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 7.50</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Hamb. Nuggets</div>
-              <div class="item-desc">(Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 8.00</div>
-          </div>
-
-          <h2 class="section-title section-title--spaced">Royal Tradicional</h2>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Carne</div>
-              <div class="item-desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 6.00</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Pollo</div>
-              <div class="item-desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 7.00</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Chorizo</div>
-              <div class="item-desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 7.00</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Pollo Deshilachado</div>
-              <div class="item-desc">(Huevo + Papas + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 8.50</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Nuggets</div>
-              <div class="item-desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 9.00</div>
-          </div>
-        </div>
-
-        <footer class="contact">
-          <div class="contact-row"><span class="contact-icon">📱</span><span>925 644 551</span></div>
-          <div class="contact-row"><span class="contact-icon">📱</span><span>947 381 482</span></div>
-          <div class="social">
+  <main class="container">
+    <!-- HERO tipo “promo” -->
+    <section class="hero" aria-label="Bienvenida">
+      <div class="hero__card">
+        <div class="hero__left">
+          <div class="hero__title">Carta Digital</div>
+          <div class="hero__subtitle">Escanea, elige y pide al toque 😎</div>
+          <div class="hero__badges">
             <span class="pill">🟢 WhatsApp</span>
             <span class="pill">🔵 Facebook</span>
           </div>
-        </footer>
-      </section>
-    </div>
-
-
-    <!-- ===================== PÁGINA 2: ROYAL ESPECIAL + OTROS ===================== -->
-    <div class="page-wrap">
-      <section class="page page--burger">
-        <div class="stripe-circle"></div>
-        <div class="stripe-corner"></div>
-
-        <header class="brand">
-          <h1 class="logo">La<br>Patrona</h1>
-          <div class="brand-sub">FUENTE DE SODA &amp; BROSTERÍA MARIA</div>
-        </header>
-
-        <div class="badge">
-          <div class="badge-inner">
-            <div>HAM</div><div>BUR</div><div>GUE</div><div>SAS</div>
-          </div>
         </div>
 
-        <svg class="fries" viewBox="0 0 220 220" aria-hidden="true">
-          <g fill="none" stroke="var(--gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M55 60 L55 20" />
-            <path d="M85 70 L85 18" />
-            <path d="M115 65 L115 22" />
-            <path d="M145 78 L145 18" />
-            <path d="M175 68 L175 26" />
-            <path d="M55 70 C55 70, 80 85, 110 85 C140 85, 165 70, 175 70" />
-            <path d="M55 70 L40 170 C85 200, 145 200, 190 170 L175 70" />
-          </g>
-        </svg>
-
-        <svg class="burger" viewBox="0 0 520 620" aria-hidden="true">
-          <g fill="var(--gold)">
-            <path d="M55,210 C70,120 150,60 260,60 C370,60 450,120 465,210 C390,240 330,250 260,250 C190,250 130,240 55,210 Z"/>
-            <path d="M85,250 C120,285 160,300 260,300 C360,300 400,285 435,250 L435,280 C395,315 350,330 260,330 C170,330 125,315 85,280 Z"/>
-            <path d="M85,340 C125,380 175,400 260,400 C345,400 395,380 435,340 L435,375 C395,415 340,435 260,435 C180,435 125,415 85,375 Z"/>
-            <path d="M95,465 C155,490 205,505 260,505 C315,505 365,490 425,465 L425,520
-                     C425,560 390,585 350,585
-                     C340,560 330,530 315,530
-                     C300,530 295,560 290,585
-                     L230,585
-                     C225,560 220,530 205,530
-                     C190,530 180,560 170,585
-                     C130,585 95,560 95,520 Z"/>
-          </g>
-        </svg>
-
-        <div class="content content--right">
-          <h2 class="section-title">Royal Especial</h2>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Carne</div>
-              <div class="item-desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 7.50</div>
+        <div class="hero__right" aria-hidden="true">
+          <!-- mini badge dorado -->
+          <div class="mini-badge">
+            <div>LA</div><div>PA</div><div>TRO</div><div>NA</div>
           </div>
 
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Pollo</div>
-              <div class="item-desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 8.50</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Chorizo</div>
-              <div class="item-desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 8.50</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Pollo Deshilachado</div>
-              <div class="item-desc">(Huevo + Queso + Papas + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 10.00</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Royal de Nuggets</div>
-              <div class="item-desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 10.50</div>
-          </div>
-
-          <div class="item item--topspace">
-            <div class="item-main">
-              <div class="item-name">Burguer a lo pobre</div>
-              <div class="item-desc">(Hamb. Carne + Huevo + Plátano + Papas + Hotdog + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 10.00</div>
-          </div>
-
-          <div class="item">
-            <div class="item-main">
-              <div class="item-name">Súper Burguer</div>
-              <div class="item-desc">(Hamb. Carne + Nuggets + Chorizo + Queso + Huevo + Papas + Hotdog + Ensalada + Tomate + Salsas)</div>
-            </div>
-            <div class="item-price">S/. 15.00</div>
-          </div>
+          <!-- iconito fries outline -->
+          <svg class="mini-fries" viewBox="0 0 220 220">
+            <g fill="none" stroke="var(--gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M55 60 L55 20" />
+              <path d="M85 70 L85 18" />
+              <path d="M115 65 L115 22" />
+              <path d="M145 78 L145 18" />
+              <path d="M175 68 L175 26" />
+              <path d="M55 70 C55 70, 80 85, 110 85 C140 85, 165 70, 175 70" />
+              <path d="M55 70 L40 170 C85 200, 145 200, 190 170 L175 70" />
+            </g>
+          </svg>
         </div>
+      </div>
+    </section>
 
-        <footer class="contact">
-          <div class="contact-row"><span class="contact-icon">📱</span><span>925 644 551</span></div>
-          <div class="contact-row"><span class="contact-icon">📱</span><span>947 381 482</span></div>
-          <div class="social">
-            <span class="pill">🟢 WhatsApp</span>
-            <span class="pill">🔵 Facebook</span>
+    <!-- ==================== HAMBURGUESAS ==================== -->
+    <section class="section" id="hamburguesas" data-section>
+      <div class="section__head">
+        <h2 class="section__title">🍔 Hamburguesas</h2>
+        <p class="section__desc">Tradicionales, Royal Tradicional y Royal Especial</p>
+      </div>
+
+      <h3 class="subhead">Burguer Tradicional</h3>
+      <div class="grid">
+        <article class="card" data-name="hamb carne papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Hamb. Carne</h4>
+            <div class="card__price">S/. 5.00</div>
           </div>
-        </footer>
-      </section>
-    </div>
+          <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+        </article>
 
+        <article class="card" data-name="hamb pollo papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Hamb. Pollo</h4>
+            <div class="card__price">S/. 6.00</div>
+          </div>
+          <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+        </article>
 
-    <!-- ===================== PÁGINA 3: SALCHIPAPAS + BROASTER ===================== -->
-    <div class="page-wrap">
-      <section class="page page--grid">
-        <div class="stripe-circle stripe-circle--top"></div>
-        <div class="stripe-corner"></div>
+        <article class="card" data-name="hamb chorizo papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Hamb. Chorizo</h4>
+            <div class="card__price">S/. 6.00</div>
+          </div>
+          <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+        </article>
 
-        <header class="brand brand--tight">
-          <h1 class="logo">La<br>Patrona</h1>
-          <div class="brand-sub">FUENTE DE SODA &amp; BROSTERÍA MARIA</div>
-        </header>
+        <article class="card" data-name="hamb pollo deshilachado papas ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Hamb. Pollo Deshilachado</h4>
+            <div class="card__price">S/. 7.50</div>
+          </div>
+          <p class="card__desc">(Papas + Ensalada + Tomate + Salsas)</p>
+        </article>
 
-        <div class="phones-top">
-          <div>925 644 551</div>
-          <div>947 381 482</div>
+        <article class="card" data-name="hamb nuggets papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Hamb. Nuggets</h4>
+            <div class="card__price">S/. 8.00</div>
+          </div>
+          <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+        </article>
+      </div>
+
+      <h3 class="subhead">Royal Tradicional</h3>
+      <div class="grid">
+        <article class="card" data-name="royal carne huevo papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Carne</h4>
+            <div class="card__price">S/. 6.00</div>
+          </div>
+          <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+        </article>
+
+        <article class="card" data-name="royal pollo huevo papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Pollo</h4>
+            <div class="card__price">S/. 7.00</div>
+          </div>
+          <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+        </article>
+
+        <article class="card" data-name="royal chorizo huevo papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Chorizo</h4>
+            <div class="card__price">S/. 7.00</div>
+          </div>
+          <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+        </article>
+
+        <article class="card" data-name="royal pollo deshilachado huevo papas ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Pollo Deshilachado</h4>
+            <div class="card__price">S/. 8.50</div>
+          </div>
+          <p class="card__desc">(Huevo + Papas + Ensalada + Tomate + Salsas)</p>
+        </article>
+
+        <article class="card" data-name="royal nuggets huevo papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Nuggets</h4>
+            <div class="card__price">S/. 9.00</div>
+          </div>
+          <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+        </article>
+      </div>
+
+      <h3 class="subhead">Royal Especial</h3>
+      <div class="grid">
+        <article class="card" data-name="royal especial carne huevo queso papas hotdog ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Carne</h4>
+            <div class="card__price">S/. 7.50</div>
+          </div>
+          <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+        </article>
+
+        <article class="card" data-name="royal especial pollo huevo queso papas hotdog ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Pollo</h4>
+            <div class="card__price">S/. 8.50</div>
+          </div>
+          <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+        </article>
+
+        <article class="card" data-name="royal especial chorizo huevo queso papas hotdog ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Chorizo</h4>
+            <div class="card__price">S/. 8.50</div>
+          </div>
+          <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+        </article>
+
+        <article class="card" data-name="royal especial pollo deshilachado huevo queso papas ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Pollo Deshilachado</h4>
+            <div class="card__price">S/. 10.00</div>
+          </div>
+          <p class="card__desc">(Huevo + Queso + Papas + Ensalada + Tomate + Salsas)</p>
+        </article>
+
+        <article class="card" data-name="royal especial nuggets huevo queso papas hotdog ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Royal de Nuggets</h4>
+            <div class="card__price">S/. 10.50</div>
+          </div>
+          <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+        </article>
+
+        <article class="card card--highlight" data-name="burguer a lo pobre carne huevo platano papas hotdog ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Burguer a lo pobre</h4>
+            <div class="card__price">S/. 10.00</div>
+          </div>
+          <p class="card__desc">(Hamb. Carne + Huevo + Plátano + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+        </article>
+
+        <article class="card card--highlight" data-name="super burguer carne nuggets chorizo queso huevo papas hotdog ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Súper Burguer</h4>
+            <div class="card__price">S/. 15.00</div>
+          </div>
+          <p class="card__desc">(Hamb. Carne + Nuggets + Chorizo + Queso + Huevo + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== SALCHIPAPAS ==================== -->
+    <section class="section" id="salchipapas" data-section>
+      <div class="section__head">
+        <h2 class="section__title">🍟 Salchipapas</h2>
+        <p class="section__desc">Clásicas y combinaciones</p>
+      </div>
+
+      <div class="grid">
+        <article class="card" data-name="salchipapa tradicional papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Salchipapa Tradicional</h4>
+            <div class="card__price">S/. 6.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+        </article>
+
+        <article class="card" data-name="salchi burguer carne papas hamburguesa hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Salchi Burguer de Carne</h4>
+            <div class="card__price">S/. 8.00</div>
+          </div>
+          <p class="card__desc">Papas + Hamb. Carne + Hotdog + Ensalada + Salsas</p>
+        </article>
+
+        <article class="card" data-name="salchi burguer pollo papas hamburguesa hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Salchi Burguer de Pollo</h4>
+            <div class="card__price">S/. 8.00</div>
+          </div>
+          <p class="card__desc">Papas + Hamb. Pollo + Hotdog + Ensalada + Salsas</p>
+        </article>
+
+        <article class="card" data-name="salchi chorizo papas hamburguesa chorizo hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Salchi Chorizo</h4>
+            <div class="card__price">S/. 8.00</div>
+          </div>
+          <p class="card__desc">Papas + Hamb. Chorizo + Hotdog + Ensalada + Salsas</p>
+        </article>
+
+        <article class="card" data-name="salchi cheese papas hotdog ahumado queso ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Salchi Cheese</h4>
+            <div class="card__price">S/. 12.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog Ahumado + Queso + Ensalada + Tomate + Salsas</p>
+        </article>
+
+        <article class="card" data-name="salchi a lo pobre papas hotdog ahumado huevo platano ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Salchi a lo Pobre</h4>
+            <div class="card__price">S/. 13.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Plátano + Ensalada + Salsas</p>
+        </article>
+
+        <article class="card" data-name="salchi cheese royal papas hotdog ahumado huevo queso ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Salchi Cheese Royal</h4>
+            <div class="card__price">S/. 14.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Queso + Ensalada + Tomate + Salsas</p>
+        </article>
+
+        <article class="card" data-name="salchi pig papas hotdog ahumado huevo tocino queso ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">Salchi Pig</h4>
+            <div class="card__price">S/. 16.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Tocino + Queso + Ensalada + Tomate + Salsas</p>
+        </article>
+
+        <article class="card card--highlight" data-name="la brava papas hotdog ahumado huevo tocino broaster queso ensalada tomate salsas">
+          <div class="card__top">
+            <h4 class="card__name">La Brava</h4>
+            <div class="card__price">S/. 18.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Tocino + Trozos Broaster + Queso + Ensalada + Tomate + Salsas</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== BROASTER ==================== -->
+    <section class="section" id="broaster" data-section>
+      <div class="section__head">
+        <h2 class="section__title">🍗 Broaster</h2>
+        <p class="section__desc">Elige tu estilo</p>
+      </div>
+
+      <div class="note">
+        <div class="note__title">Incluye</div>
+        <div class="note__body">(Papas + Hotdog + Ensalada + Salsas)</div>
+      </div>
+
+      <div class="grid">
+        <article class="card" data-name="broaster pecho ala con pecho nuggets pierna entrepierna">
+          <div class="card__top">
+            <h4 class="card__name">Broaster</h4>
+            <div class="card__price">S/. 12.00</div>
+          </div>
+          <p class="card__desc">-Pecho / -Ala con Pecho / -Nuggets / -Pierna / -Entrepierna</p>
+        </article>
+
+        <article class="card" data-name="alita broaster papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Alita Broaster</h4>
+            <div class="card__price">S/. 8.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+        </article>
+
+        <article class="card" data-name="menudencia broaster papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Menudencia Broaster</h4>
+            <div class="card__price">S/. 10.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+        </article>
+
+        <article class="card" data-name="patitas broaster papas hotdog ensalada salsas">
+          <div class="card__top">
+            <h4 class="card__name">Patitas Broaster</h4>
+            <div class="card__price">S/. 12.00</div>
+          </div>
+          <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+        </article>
+      </div>
+
+      <h3 class="subhead">Adicionales</h3>
+      <div class="grid">
+        <article class="card" data-name="adicionales hotdog ahumado tocino queso platano hamburguesas">
+          <div class="card__top">
+            <h4 class="card__name">Adicionales</h4>
+            <div class="card__price">S/. 2.00</div>
+          </div>
+          <p class="card__desc">Hotdog ahumado / Tocino / Queso / Plátano / hamburguesas</p>
+        </article>
+
+        <article class="card" data-name="porcion de arroz arroz">
+          <div class="card__top">
+            <h4 class="card__name">Porción de arroz</h4>
+            <div class="card__price">S/. 3.00</div>
+          </div>
+          <p class="card__desc">Porción adicional</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== BEBIDAS ==================== -->
+    <section class="section" id="bebidas" data-section>
+      <div class="section__head">
+        <h2 class="section__title">🥤 Bebidas</h2>
+        <p class="section__desc">Refrescos, infusiones, gaseosas, jugos y postres</p>
+      </div>
+
+      <h3 class="subhead">Refresco de maracuyá</h3>
+      <div class="grid">
+        <article class="card" data-name="refresco maracuya jarra 1 litro">
+          <div class="card__top">
+            <h4 class="card__name">Jarra 1 litro</h4>
+            <div class="card__price">S/. 5.00</div>
+          </div>
+        </article>
+
+        <article class="card" data-name="refresco maracuya jarra 1/2 litro">
+          <div class="card__top">
+            <h4 class="card__name">Jarra 1/2 litro</h4>
+            <div class="card__price">S/. 3.00</div>
+          </div>
+        </article>
+
+        <article class="card" data-name="refresco maracuya vaso">
+          <div class="card__top">
+            <h4 class="card__name">Vaso</h4>
+            <div class="card__price">S/. 1.50 - 2.00</div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="subhead">Infusiones</h3>
+      <div class="grid">
+        <article class="card" data-name="infusion te anis manzanilla">
+          <div class="card__top">
+            <h4 class="card__name">Té / Anís / Manzanilla</h4>
+            <div class="card__price">S/. 1.50</div>
+          </div>
+        </article>
+
+        <article class="card" data-name="cafe">
+          <div class="card__top">
+            <h4 class="card__name">Café</h4>
+            <div class="card__price">S/. 2.00</div>
+          </div>
+        </article>
+
+        <article class="card" data-name="cafe con leche">
+          <div class="card__top">
+            <h4 class="card__name">Café con leche</h4>
+            <div class="card__price">S/. 2.00</div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="subhead">Gaseosas</h3>
+      <div class="grid">
+        <article class="card" data-name="inca kola coca cola 1 litro">
+          <div class="card__top"><h4 class="card__name">Inca kola / Coca cola 1 litro</h4></div>
+          <p class="card__desc">Disponible</p>
+        </article>
+        <article class="card" data-name="pepsi 1 1/2 litro">
+          <div class="card__top"><h4 class="card__name">Pepsi 1 1/2 litro</h4></div>
+          <p class="card__desc">Disponible</p>
+        </article>
+        <article class="card" data-name="concordia 1 1/2 litro">
+          <div class="card__top"><h4 class="card__name">Concordia 1 1/2 litro</h4></div>
+          <p class="card__desc">Disponible</p>
+        </article>
+        <article class="card" data-name="inca kola coca cola 3 litros">
+          <div class="card__top"><h4 class="card__name">Inca kola / Coca cola 3 litros</h4></div>
+          <p class="card__desc">Disponible</p>
+        </article>
+        <article class="card" data-name="concordia 3 litros">
+          <div class="card__top"><h4 class="card__name">Concordia 3 litros</h4></div>
+          <p class="card__desc">Disponible</p>
+        </article>
+        <article class="card" data-name="gatorade">
+          <div class="card__top"><h4 class="card__name">Gatorade</h4></div>
+          <p class="card__desc">Disponible</p>
+        </article>
+        <article class="card" data-name="volt">
+          <div class="card__top"><h4 class="card__name">Volt</h4></div>
+          <p class="card__desc">Disponible</p>
+        </article>
+      </div>
+
+      <h3 class="subhead">Jugos</h3>
+      <div class="grid">
+        <article class="card" data-name="jugo papaya"><div class="card__top"><h4 class="card__name">Papaya</h4></div></article>
+        <article class="card" data-name="jugo pina"><div class="card__top"><h4 class="card__name">Piña</h4></div></article>
+        <article class="card" data-name="jugo surtido"><div class="card__top"><h4 class="card__name">Surtido</h4></div></article>
+        <article class="card" data-name="jugo fresa"><div class="card__top"><h4 class="card__name">Fresa</h4></div></article>
+        <article class="card" data-name="jugo naranja"><div class="card__top"><h4 class="card__name">Naranja</h4></div></article>
+        <article class="card" data-name="jugo papaya con pina"><div class="card__top"><h4 class="card__name">Papaya con piña</h4></div></article>
+      </div>
+
+      <h3 class="subhead">Jugos especiales</h3>
+      <div class="grid">
+        <article class="card" data-name="jugo especial"><div class="card__top"><h4 class="card__name">Especial</h4></div></article>
+        <article class="card" data-name="jugo papaya con leche"><div class="card__top"><h4 class="card__name">Papaya con leche</h4></div></article>
+        <article class="card" data-name="jugo fresa con leche"><div class="card__top"><h4 class="card__name">Fresa con leche</h4></div></article>
+      </div>
+
+      <h3 class="subhead">Postres</h3>
+      <div class="grid">
+        <article class="card" data-name="postre queque vainilla"><div class="card__top"><h4 class="card__name">Queque de vainilla</h4></div></article>
+        <article class="card" data-name="postre queque marmoleado"><div class="card__top"><h4 class="card__name">Queque marmoleado</h4></div></article>
+        <article class="card" data-name="postre torta chocolate"><div class="card__top"><h4 class="card__name">Torta de chocolate</h4></div></article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__line"></div>
+      <div class="footer__grid">
+        <div>
+          <div class="footer__title">La Patrona</div>
+          <div class="footer__muted">Gracias por tu preferencia 💛</div>
         </div>
-
-        <div class="badge badge--small">
-          <div class="badge-inner">
-            <div>SALCHI</div><div>PA</div><div>PAS</div>
-          </div>
+        <div class="footer__phones">
+          <a href="tel:+51925644551">📱 925 644 551</a>
+          <a href="tel:+51947381482">📱 947 381 482</a>
         </div>
-
-        <svg class="fries fries--big" viewBox="0 0 220 220" aria-hidden="true">
-          <g fill="none" stroke="var(--gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M55 60 L55 20" />
-            <path d="M85 70 L85 18" />
-            <path d="M115 65 L115 22" />
-            <path d="M145 78 L145 18" />
-            <path d="M175 68 L175 26" />
-            <path d="M55 70 C55 70, 80 85, 110 85 C140 85, 165 70, 175 70" />
-            <path d="M55 70 L40 170 C85 200, 145 200, 190 170 L175 70" />
-          </g>
-        </svg>
-
-        <div class="content content--grid">
-
-          <div class="col">
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">Salchipapa Tradicional</div>
-                <div class="item-desc">Papas + Hotdog + Ensalada + Salsas</div>
-              </div>
-              <div class="item-price">S/. 6.00</div>
-            </div>
-
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">Salchi Burguer de Carne</div>
-                <div class="item-desc">Papas + Hamb. Carne + Hotdog + Ensalada + Salsas</div>
-              </div>
-              <div class="item-price">S/. 8.00</div>
-            </div>
-
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">Salchi Burguer de Pollo</div>
-                <div class="item-desc">Papas + Hamb. Pollo + Hotdog + Ensalada + Salsas</div>
-              </div>
-              <div class="item-price">S/. 8.00</div>
-            </div>
-
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">Salchi Chorizo</div>
-                <div class="item-desc">Papas + Hamb. Chorizo + Hotdog + Ensalada + Salsas</div>
-              </div>
-              <div class="item-price">S/. 8.00</div>
-            </div>
-
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">Salchi Cheese</div>
-                <div class="item-desc">Papas + Hotdog Ahumado + Queso + Ensalada + Tomate + Salsas</div>
-              </div>
-              <div class="item-price">S/. 12.00</div>
-            </div>
-
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">Salchi a lo Pobre</div>
-                <div class="item-desc">Papas + Hotdog Ahumado + Huevo + Plátano + Ensalada + Salsas</div>
-              </div>
-              <div class="item-price">S/. 13.00</div>
-            </div>
-
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">Salchi Cheese Royal</div>
-                <div class="item-desc">Papas + Hotdog Ahumado + Huevo + Queso + Ensalada + Tomate + Salsas</div>
-              </div>
-              <div class="item-price">S/. 14.00</div>
-            </div>
-
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">Salchi Pig</div>
-                <div class="item-desc">Papas + Hotdog Ahumado + Huevo + Tocino + Queso + Ensalada + Tomate + Salsas</div>
-              </div>
-              <div class="item-price">S/. 16.00</div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="item">
-              <div class="item-main">
-                <div class="item-name">La Brava</div>
-                <div class="item-desc">Papas + Hotdog Ahumado + Huevo + Tocino + Trozos Broaster + Queso + Ensalada + Tomate + Salsas</div>
-              </div>
-              <div class="item-price">S/. 18.00</div>
-            </div>
-
-            <h2 class="section-title section-title--small">Broaster</h2>
-
-            <div class="mini-list">
-              <div>-Pecho</div>
-              <div>-Ala con Pecho</div>
-              <div>-Nuggets</div>
-              <div>-Pierna</div>
-              <div>-Entrepierna</div>
-              <div class="mini-note">(Papas + Hotdog + Ensalada + Salsas)</div>
-            </div>
-
-            <div class="item item--compact">
-              <div class="item-main">
-                <div class="item-name">Broaster</div>
-              </div>
-              <div class="item-price">S/. 12.00</div>
-            </div>
-
-            <div class="item item--compact">
-              <div class="item-main"><div class="item-name">Alita Broaster</div></div>
-              <div class="item-price">S/. 8.00</div>
-            </div>
-
-            <div class="item item--compact">
-              <div class="item-main"><div class="item-name">Menudencia Broaster</div></div>
-              <div class="item-price">S/. 10.00</div>
-            </div>
-
-            <div class="item item--compact">
-              <div class="item-main"><div class="item-name">Patitas Broaster</div></div>
-              <div class="item-price">S/. 12.00</div>
-            </div>
-
-            <h2 class="section-title section-title--small section-title--spaced">Adicionales</h2>
-            <div class="item item--compact">
-              <div class="item-main">
-                <div class="item-desc">Hotdog ahumado / Tocino / Queso / Plátano / hamburguesas</div>
-              </div>
-              <div class="item-price">S/. 2.00</div>
-            </div>
-
-            <div class="item item--compact">
-              <div class="item-main"><div class="item-name">Porción de arroz</div></div>
-              <div class="item-price">S/. 3.00</div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- papitas ilustración abajo -->
-        <div class="bottom-fries">
-          <div class="bottom-fries-inner"></div>
-        </div>
-      </section>
-    </div>
-
-
-    <!-- ===================== PÁGINA 4: BEBIDAS ===================== -->
-    <div class="page-wrap">
-      <section class="page page--grid">
-        <div class="stripe-circle"></div>
-        <div class="stripe-corner"></div>
-
-        <header class="brand brand--tight">
-          <h1 class="logo">La<br>Patrona</h1>
-          <div class="brand-sub">FUENTE DE SODA &amp; BROSTERÍA MARIA</div>
-        </header>
-
-        <div class="badge badge--small">
-          <div class="badge-inner">
-            <div>BE</div><div>BI</div><div>DAS</div>
-          </div>
-        </div>
-
-        <!-- mini bebidas (outline) -->
-        <svg class="drinks-icon" viewBox="0 0 260 220" aria-hidden="true">
-          <g fill="none" stroke="var(--gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M30 190 L60 60 L110 60 L90 190 Z"/>
-            <path d="M70 60 L70 30"/>
-            <circle cx="170" cy="90" r="35"/>
-            <path d="M200 190 C200 145 215 135 215 90"/>
-            <path d="M215 190 L215 90"/>
-            <path d="M215 90 C215 55 235 45 235 20"/>
-          </g>
-        </svg>
-
-        <div class="content content--grid content--drinks">
-          <div class="col">
-            <h2 class="section-title section-title--small">Refresco de maracuyá</h2>
-            <div class="two-lines">
-              <div class="line"><span>Jarra 1 litro</span><span>S/. 5.00</span></div>
-              <div class="line"><span>Jarra 1/2 litro</span><span>S/. 3.00</span></div>
-              <div class="line"><span>Vaso</span><span>S/. 1.50 - 2.00</span></div>
-            </div>
-
-            <h2 class="section-title section-title--small section-title--spaced">Infusiones</h2>
-            <div class="two-lines">
-              <div class="line"><span>Té / Anís / Manzanilla</span><span>S/. 1.50</span></div>
-              <div class="line"><span>Café</span><span>S/. 2.00</span></div>
-              <div class="line"><span>Café con leche</span><span>S/. 2.00</span></div>
-            </div>
-
-            <h2 class="section-title section-title--small section-title--spaced">Gaseosas</h2>
-            <ul class="plain-list">
-              <li>Inca kola / Coca cola 1 litro</li>
-              <li>Pepsi 1 1/2 litro</li>
-              <li>Concordia 1 1/2 litro</li>
-              <li>Inca kola / Coca cola 3 litros</li>
-              <li>Concordia 3 litros</li>
-              <li>Gatorade</li>
-              <li>Volt</li>
-            </ul>
-
-            <div class="subnote">Gaseosas personales:</div>
-            <ul class="plain-list">
-              <li>Inca kola / Coca cola</li>
-              <li>Pepsi</li>
-              <li>Guaraná</li>
-              <li>Concordia</li>
-            </ul>
-
-            <div class="contact contact--inline">
-              <div class="contact-row"><span class="contact-icon">📱</span><span>925 644 551</span></div>
-              <div class="contact-row"><span class="contact-icon">📱</span><span>947 381 482</span></div>
-            </div>
-          </div>
-
-          <div class="col">
-            <h2 class="section-title section-title--small">Jugos</h2>
-            <ul class="plain-list">
-              <li>Papaya</li>
-              <li>Piña</li>
-              <li>Surtido</li>
-              <li>Fresa</li>
-              <li>Naranja</li>
-              <li>Papaya con piña</li>
-            </ul>
-
-            <h2 class="section-title section-title--small section-title--spaced">Jugos especiales</h2>
-            <ul class="plain-list">
-              <li>Especial</li>
-              <li>Papaya con leche</li>
-              <li>Fresa con leche</li>
-            </ul>
-
-            <h2 class="section-title section-title--small section-title--spaced">Postres</h2>
-            <ul class="plain-list">
-              <li>Queque de vainilla</li>
-              <li>Queque marmoleado</li>
-              <li>Torta de chocolate</li>
-            </ul>
-
-            <div class="juice-deco">
-              <div class="cup"></div>
-              <div class="cup"></div>
-              <div class="cup"></div>
-              <div class="fruit"></div>
-              <div class="fruit fruit--small"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
+      </div>
+    </footer>
   </main>
+
+  <!-- Botón flotante WhatsApp -->
+  <a class="fab" href="https://wa.me/51925644551" target="_blank" rel="noopener">
+    <span class="fab__icon">🟢</span>
+    <span class="fab__text">WhatsApp</span>
+  </a>
 
   <script src="js/app.js" defer></script>
 </body>

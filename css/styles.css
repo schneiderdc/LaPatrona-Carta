@@ -1,406 +1,483 @@
 :root{
   --bg: #070707;
-  --paper: #0a0a0a;
+  --card: #0d0d0d;
+  --card2: #0b0b0b;
   --gold: #d3a21d;
   --white: #f5f5f5;
-  --muted: #d7d7d7;
+  --muted: rgba(245,245,245,.78);
+  --line: rgba(211,162,29,.25);
+  --shadow: 0 18px 60px rgba(0,0,0,.55);
 
-  /* Tamaño diseño base (NO lo cambiamos) */
-  --w: 1080px;
-  --h: 1920px;
+  --radius: 18px;
+  --radius2: 22px;
 
-  /* Escala calculada por JS */
-  --page-scale: 1;
+  --container: 980px; /* en desktop se estira, en móvil manda */
 }
 
 *{ box-sizing: border-box; }
-
-html, body{
-  height: 100%;
-}
+html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
-  background: #111;
+  background: var(--bg);
   color: var(--white);
   font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ✅ En celular: “páginas” una debajo de otra, con snap */
-.book{
-  margin: 0;
-  padding: 0;
-  display: block;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+/* Fondo decorativo (no invade contenido) */
+.bg-deco{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(211,162,29,.08), transparent 60%),
+    radial-gradient(700px 450px at 90% 30%, rgba(211,162,29,.06), transparent 60%),
+    radial-gradient(800px 500px at 30% 95%, rgba(255,255,255,.04), transparent 65%);
+  opacity: 1;
+  z-index: -1;
 }
 
-/* Cada página ocupa 100% de la pantalla */
-.page-wrap{
-  height: 100svh;          /* mejor para móviles */
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
-  display: flex;
+/* =========================
+   TOPBAR (sticky)
+========================= */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(7,7,7,.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(211,162,29,.16);
+}
+
+.topbar__inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 14px) 14px 10px 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
   align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-
-  /* respeta notch/ safe-area en móviles */
-  padding:
-    env(safe-area-inset-top)
-    env(safe-area-inset-right)
-    env(safe-area-inset-bottom)
-    env(safe-area-inset-left);
 }
 
-/* ✅ La página REAL se escala y queda centrada */
-.page{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--w);
-  height: var(--h);
-  background: var(--paper);
-  overflow: hidden;
-  border-radius: 22px;
-  box-shadow: 0 18px 60px rgba(0,0,0,.55);
-
-  transform: translate(-50%, -50%) scale(var(--page-scale));
-  transform-origin: center;
+.brand__logo{
+  display: grid;
+  gap: 6px;
 }
-
-/* ===== Decoraciones tipo rayas ===== */
-.stripe-circle{
-  position: absolute;
-  left: -80px;
-  bottom: -80px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background:
-    repeating-linear-gradient(45deg, rgba(211,162,29,.85) 0 10px, rgba(211,162,29,.15) 10px 20px);
-  opacity: .75;
-  filter: blur(.2px);
-}
-.stripe-circle--top{
-  left: -90px;
-  top: -90px;
-  bottom: auto;
-}
-
-.stripe-corner{
-  position: absolute;
-  right: -40px;
-  bottom: -40px;
-  width: 210px;
-  height: 210px;
-  background:
-    repeating-linear-gradient(-45deg, rgba(211,162,29,.75) 0 10px, rgba(211,162,29,.12) 10px 20px);
-  border-radius: 40px;
-  transform: rotate(10deg);
-  opacity: .65;
-}
-
-/* ===== Marca ===== */
-.brand{
-  position: absolute;
-  left: 70px;
-  top: 55px;
-  z-index: 5;
-}
-.brand--tight{ top: 40px; }
 
 .logo{
-  margin: 0;
   font-family: "Pacifico", cursive;
   font-weight: 400;
-  color: var(--white);
-  line-height: .95;
-  font-size: 90px;
-  letter-spacing: 1px;
+  line-height: .90;
+  letter-spacing: 0.3px;
+  font-size: clamp(36px, 6vw, 54px);
 }
-.brand-sub{
-  margin-top: 10px;
-  font-size: 18px;
+
+.brand__sub{
+  font-size: 12px;
   letter-spacing: 2px;
+  color: rgba(245,245,245,.9);
+  text-transform: uppercase;
+}
+
+.topbar__actions{
+  display: grid;
+  gap: 6px;
+  align-items: end;
+  justify-items: end;
+}
+
+.phone{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(245,245,245,.14);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  opacity: .95;
+}
+.phone__dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(211,162,29,.16);
+}
+
+/* =========================
+   SEARCH
+========================= */
+.search{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 8px 14px 10px 14px;
+  display: grid;
+  gap: 6px;
+}
+
+.search__box{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(211,162,29,.18);
+  border-radius: 999px;
+  padding: 10px 12px;
+}
+
+.search__icon{ opacity: .9; }
+.search__clear{
+  border: 0;
+  background: transparent;
+  color: rgba(245,245,245,.75);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 10px;
+}
+.search__clear:hover{ background: rgba(255,255,255,.06); }
+
+#searchInput{
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--white);
+  font-size: 14px;
+}
+#searchInput::placeholder{
+  color: rgba(245,245,245,.55);
+}
+
+.search__hint{
+  min-height: 16px;
+  font-size: 12px;
+  color: rgba(245,245,245,.75);
+}
+
+/* =========================
+   CATEGORIES (chips)
+========================= */
+.cats{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 14px 12px 14px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.cats::-webkit-scrollbar{ display: none; }
+
+.chip{
+  flex: 0 0 auto;
+  border: 1px solid rgba(245,245,245,.14);
+  background: rgba(255,255,255,.03);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.chip:hover{ transform: translateY(-1px); }
+.chip.is-active{
+  border-color: rgba(211,162,29,.45);
+  background: rgba(211,162,29,.12);
+  color: var(--white);
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px 14px 90px 14px; /* espacio para el FAB */
+}
+
+.hero{
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.hero__card{
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border: 1px solid rgba(211,162,29,.18);
+  border-radius: var(--radius2);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.hero__title{
+  font-family: "Patrick Hand", cursive;
+  font-size: 26px;
+  color: var(--gold);
+  letter-spacing: .6px;
+}
+.hero__subtitle{
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.hero__badges{
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(245,245,245,.14);
+  background: rgba(255,255,255,.03);
+  font-size: 12px;
+  opacity: .95;
+}
+
+/* Mini decoración derecha */
+.hero__right{
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 160px;
+  height: 160px;
+  opacity: .95;
+}
+
+.mini-badge{
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  width: 84px;
+  height: 116px;
+  border: 3px solid var(--gold);
+  display: grid;
+  place-items: center;
+  font-family: "Patrick Hand", cursive;
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 18px;
+  line-height: 1.05;
+  background: rgba(7,7,7,.6);
+}
+
+.mini-fries{
+  position: absolute;
+  right: -10px;
+  bottom: -12px;
+  width: 140px;
+  height: 140px;
+  opacity: .8;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.section{
+  padding-top: 12px;
+  margin-top: 18px;
+  scroll-margin-top: 190px; /* para que el sticky header no tape el título */
+}
+
+.section__head{
+  display: grid;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.section__title{
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .3px;
+}
+
+.section__desc{
+  margin: 0;
+  font-size: 13px;
+  color: rgba(245,245,245,.72);
+}
+
+.subhead{
+  margin: 16px 0 10px 0;
+  font-family: "Patrick Hand", cursive;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: .6px;
+}
+
+/* =========================
+   CARDS GRID
+========================= */
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+  border: 1px solid rgba(211,162,29,.18);
+  border-radius: var(--radius);
+  padding: 12px 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.card:hover{
+  transform: translateY(-1px);
+  border-color: rgba(211,162,29,.32);
+}
+
+.card__top{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.card__name{
+  margin: 0;
+  font-family: "Patrick Hand", cursive;
+  font-size: 20px;
+  line-height: 1.05;
+  color: var(--gold);
+  letter-spacing: .4px;
+}
+
+.card__price{
+  white-space: nowrap;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--white);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(245,245,245,.14);
+  background: rgba(255,255,255,.02);
+}
+
+.card__desc{
+  margin: 8px 0 0 0;
+  color: rgba(245,245,245,.88);
+  font-family: "Patrick Hand", cursive;
+  font-size: 16px;
+  line-height: 1.22;
+}
+
+.card--highlight{
+  border-color: rgba(211,162,29,.35);
+  background: linear-gradient(180deg, rgba(211,162,29,.10), rgba(255,255,255,.01));
+}
+
+/* Nota */
+.note{
+  margin: 10px 0 12px 0;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px dashed rgba(211,162,29,.35);
+  background: rgba(211,162,29,.06);
+}
+.note__title{
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--white);
+  opacity: .9;
+}
+.note__body{
+  margin-top: 2px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 16px;
   color: rgba(245,245,245,.9);
 }
 
-/* ===== Badge ===== */
-.badge{
-  position: absolute;
-  top: 70px;
-  right: 340px;
-  width: 150px;
-  height: 210px;
-  border: 6px solid var(--gold);
-  display: grid;
-  place-items: center;
-  z-index: 5;
-}
-.badge--small{
-  right: 340px;
-  width: 150px;
-  height: 200px;
-}
-.badge-inner{
-  font-family: "Patrick Hand", cursive;
-  font-size: 44px;
-  color: var(--gold);
-  line-height: 1.02;
-  text-align: center;
-  letter-spacing: 2px;
-}
-
-/* ===== Iconos grandes ===== */
-.fries{
-  position: absolute;
-  top: 40px;
-  right: 60px;
-  width: 220px;
-  height: 220px;
-  z-index: 5;
-  opacity: .95;
-}
-.fries--big{
-  top: 70px;
-  right: 70px;
-  width: 240px;
-  height: 240px;
-}
-
-.burger{
-  position: absolute;
-  left: -70px;
-  bottom: 160px;
-  width: 560px;
-  height: auto;
-  z-index: 1;
-  opacity: .97;
-}
-
-/* ===== Contenido (hamburguesas) ===== */
-.content--right{
-  position: absolute;
-  top: 300px;
-  left: 520px;
-  right: 80px;
-  z-index: 6;
-}
-
-/* ===== Títulos ===== */
-.section-title{
-  margin: 0 0 18px 0;
-  font-family: "Patrick Hand", cursive;
-  color: var(--gold);
-  font-size: 56px;
-  letter-spacing: 1px;
-}
-.section-title--spaced{ margin-top: 34px; }
-.section-title--small{ font-size: 48px; }
-
-/* ===== Items ===== */
-.item{
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 18px;
-  margin: 18px 0;
-}
-.item--topspace{ margin-top: 28px; }
-.item--compact{ margin: 12px 0; }
-
-.item-main{ flex: 1; min-width: 0; }
-
-.item-name{
-  font-family: "Patrick Hand", cursive;
-  color: var(--gold);
-  font-size: 40px;
-  line-height: 1.05;
-}
-.item-desc{
-  margin-top: 6px;
-  font-family: "Patrick Hand", cursive;
-  color: var(--white);
-  font-size: 30px;
-  opacity: .95;
-}
-.item-price{
-  white-space: nowrap;
-  font-weight: 700;
-  font-size: 40px;
-  color: var(--white);
-}
-
-/* ===== Footer contacto ===== */
-.contact{
-  position: absolute;
-  left: 85px;
-  bottom: 70px;
-  z-index: 7;
-  display: grid;
-  gap: 12px;
-}
-.contact--inline{
-  position: static;
-  margin-top: 18px;
-}
-.contact-row{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 30px;
-}
-.contact-icon{ font-size: 26px; opacity: .95; }
-
-.social{
-  margin-top: 6px;
-  display: flex;
-  gap: 10px;
-}
-.pill{
-  font-size: 20px;
-  border: 2px solid rgba(245,245,245,.25);
-  padding: 8px 12px;
-  border-radius: 999px;
-  opacity: .9;
-}
-
-/* ===== Páginas tipo “grid” ===== */
-.page--grid .badge{ top: 70px; }
-
-.phones-top{
-  position: absolute;
-  top: 70px;
-  left: 480px;
-  z-index: 6;
-  font-size: 34px;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.25;
-}
-
-.content--grid{
-  position: absolute;
-  top: 300px;
-  left: 80px;
-  right: 80px;
-  bottom: 120px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 55px;
-  z-index: 6;
-}
-
-.mini-list{
-  font-family: "Patrick Hand", cursive;
-  font-size: 32px;
-  color: var(--white);
-  opacity: .95;
-  margin: 10px 0 10px 0;
-  line-height: 1.25;
-}
-.mini-note{
-  margin-top: 12px;
-  opacity: .9;
-}
-
-.bottom-fries{
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 260px;
-  z-index: 0;
-  opacity: .75;
-}
-.bottom-fries-inner{
-  height: 100%;
-  background:
-    linear-gradient(0deg, rgba(211,162,29,.25), rgba(211,162,29,0)),
-    repeating-linear-gradient(90deg, rgba(211,162,29,.65) 0 14px, rgba(211,162,29,.15) 14px 26px);
-  transform: skewX(-8deg);
-}
-
-/* ===== Bebidas ===== */
-.plain-list{
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0 0;
-  font-family: "Patrick Hand", cursive;
-  font-size: 34px;
-  line-height: 1.28;
-  color: var(--white);
-  opacity: .95;
-}
-.subnote{
-  margin-top: 18px;
-  font-family: "Patrick Hand", cursive;
-  color: var(--white);
-  opacity: .9;
-  font-size: 30px;
-}
-
-.two-lines{
-  margin-top: 8px;
-  display: grid;
-  gap: 10px;
-  font-family: "Patrick Hand", cursive;
-  font-size: 34px;
-}
-.line{
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  color: var(--white);
-}
-
-.drinks-icon{
-  position: absolute;
-  top: 50px;
-  right: 70px;
-  width: 260px;
-  height: 220px;
-  z-index: 6;
-  opacity: .95;
-}
-
-.juice-deco{
+/* =========================
+   FOOTER
+========================= */
+.footer{
   margin-top: 26px;
-  position: relative;
-  height: 240px;
+  padding: 16px 0 22px 0;
 }
-.cup{
-  position: absolute;
-  bottom: 30px;
-  width: 80px;
-  height: 140px;
-  border: 5px solid rgba(245,245,245,.7);
-  border-radius: 18px;
-  transform: skewX(-6deg);
-  opacity: .85;
+.footer__line{
+  height: 1px;
+  background: rgba(211,162,29,.18);
+  margin-bottom: 14px;
 }
-.cup:nth-child(1){ left: 20px; }
-.cup:nth-child(2){ left: 120px; height: 160px; bottom: 20px; }
-.cup:nth-child(3){ left: 220px; height: 130px; bottom: 35px; }
+.footer__grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.footer__title{
+  font-family: "Patrick Hand", cursive;
+  color: var(--gold);
+  font-size: 22px;
+}
+.footer__muted{
+  font-size: 13px;
+  color: rgba(245,245,245,.7);
+}
+.footer__phones{
+  display: grid;
+  gap: 6px;
+}
+.footer__phones a{
+  color: rgba(245,245,245,.92);
+  text-decoration: none;
+  border: 1px solid rgba(245,245,245,.14);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,.03);
+}
 
-.fruit{
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: rgba(211,162,29,.25);
-  border: 5px solid rgba(211,162,29,.85);
-  opacity: .9;
+/* =========================
+   FLOATING WHATSAPP BUTTON
+========================= */
+.fab{
+  position: fixed;
+  right: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--white);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(211,162,29,.30);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.5);
 }
-.fruit--small{
-  width: 70px;
-  height: 70px;
-  right: 110px;
-  bottom: 30px;
+.fab__icon{ font-size: 18px; }
+.fab__text{ font-weight: 800; font-size: 13px; }
+
+/* =========================
+   RESPONSIVE (pero mobile-first)
+========================= */
+@media (min-width: 620px){
+  .grid{ grid-template-columns: 1fr 1fr; }
+  .hero__card{ padding: 18px; }
+  .footer__grid{ grid-template-columns: 1fr auto; align-items: start; }
+}
+
+@media (min-width: 980px){
+  .grid{ grid-template-columns: repeat(3, 1fr); }
 }
