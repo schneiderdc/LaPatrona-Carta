@@ -82,12 +82,10 @@
         </div>
 
         <div class="hero__right" aria-hidden="true">
-          <!-- mini badge dorado -->
           <div class="mini-badge">
             <div>LA</div><div>PA</div><div>TRO</div><div>NA</div>
           </div>
 
-          <!-- iconito fries outline -->
           <svg class="mini-fries" viewBox="0 0 220 220">
             <g fill="none" stroke="var(--gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M55 60 L55 20" />
@@ -120,12 +118,19 @@
           <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
         </article>
 
-        <article class="card" data-name="hamb pollo papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Hamb. Pollo</h4>
-            <div class="card__price">S/. 6.00</div>
+        <!-- ✅ SOLO ESTE TIENE IMAGEN -->
+        <article class="card card--media" data-name="hamb pollo papas hotdog ensalada salsas">
+          <div class="card__media">
+            <img src="img/Hamb.Pollo.jpg" alt="Hamburguesa de pollo" loading="lazy" />
           </div>
-          <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Hamb. Pollo</h4>
+              <div class="card__price">S/. 6.00</div>
+            </div>
+            <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+          </div>
         </article>
 
         <article class="card" data-name="hamb chorizo papas hotdog ensalada salsas">

@@ -11,7 +11,7 @@
   --radius: 18px;
   --radius2: 22px;
 
-  --container: 980px; /* en desktop se estira, en móvil manda */
+  --container: 980px;
 }
 
 *{ box-sizing: border-box; }
@@ -200,7 +200,7 @@ body{
 .container{
   max-width: var(--container);
   margin: 0 auto;
-  padding: 14px 14px 90px 14px; /* espacio para el FAB */
+  padding: 14px 14px 90px 14px;
 }
 
 .hero{
@@ -251,7 +251,6 @@ body{
   opacity: .95;
 }
 
-/* Mini decoración derecha */
 .hero__right{
   position: absolute;
   right: -10px;
@@ -294,7 +293,7 @@ body{
 .section{
   padding-top: 12px;
   margin-top: 18px;
-  scroll-margin-top: 190px; /* para que el sticky header no tape el título */
+  scroll-margin-top: 190px;
 }
 
 .section__head{
@@ -386,6 +385,60 @@ body{
   background: linear-gradient(180deg, rgba(211,162,29,.10), rgba(255,255,255,.01));
 }
 
+/* =========================
+   ✅ CARD CON IMAGEN (solo Hamb. Pollo)
+========================= */
+.card--media{
+  padding: 0;              /* para que la foto pegue con el borde */
+  overflow: hidden;        /* recorta imagen en el radio */
+  display: grid;
+  grid-template-columns: 118px 1fr; /* estilo Pardo's: foto izquierda */
+  align-items: stretch;
+  gap: 0;
+}
+
+.card--media .card__media{
+  position: relative;
+  background: rgba(255,255,255,.02);
+}
+
+.card--media .card__media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* overlay suave para que la foto combine con el dark */
+.card--media .card__media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(7,7,7,.05), rgba(7,7,7,.42));
+  pointer-events:none;
+}
+
+.card--media .card__body{
+  padding: 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card--media .card__desc{
+  margin-top: 6px;
+}
+
+/* si la pantalla es muy angosta, se apila bonito */
+@media (max-width: 360px){
+  .card--media{
+    grid-template-columns: 1fr;
+  }
+  .card--media .card__media{
+    height: 150px;
+  }
+}
+
 /* Nota */
 .note{
   margin: 10px 0 12px 0;
@@ -470,7 +523,7 @@ body{
 .fab__text{ font-weight: 800; font-size: 13px; }
 
 /* =========================
-   RESPONSIVE (pero mobile-first)
+   RESPONSIVE (mobile-first)
 ========================= */
 @media (min-width: 620px){
   .grid{ grid-template-columns: 1fr 1fr; }
