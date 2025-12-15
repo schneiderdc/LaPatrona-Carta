@@ -6,13 +6,15 @@
   const searchHint = document.getElementById("searchHint");
   const cards = Array.from(document.querySelectorAll(".card"));
 
+  // Placeholder 1x1 transparente
+  const EMPTY_SRC = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
+
   // ===== Scroll a sección al tocar chip =====
   chips.forEach(btn => {
     btn.addEventListener("click", () => {
       const targetSel = btn.getAttribute("data-target");
       const el = document.querySelector(targetSel);
       if (!el) return;
-
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
@@ -24,7 +26,6 @@
 
   const io = new IntersectionObserver(
     (entries) => {
-      // busca la que esté más visible
       const visible = entries
         .filter(e => e.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -75,7 +76,42 @@
     searchInput.focus();
   });
 
-  // estado inicial
   clearBtn.style.opacity = "0";
   clearBtn.style.pointerEvents = "none";
+
+  // ===== Auto-detección de imágenes (card--auto) =====
+  const setupMenuImages = () => {
+    const imgs = Array.from(document.querySelectorAll(".card__media img"));
+
+    const updateState = (img) => {
+      const card = img.closest(".card");
+      const media = img.closest(".card__media");
+      if (!card || !media) return;
+
+      const hasRealImage = img.complete && img.naturalWidth > 1 && img.src !== EMPTY_SRC;
+
+      if (hasRealImage) {
+        card.classList.add("has-img");
+        media.classList.remove("media--placeholder");
+      } else {
+        card.classList.remove("has-img");
+        media.classList.add("media--placeholder");
+      }
+    };
+
+    imgs.forEach(img => {
+      // Estado inicial
+      updateState(img);
+
+      img.addEventListener("load", () => updateState(img));
+
+      img.addEventListener("error", () => {
+        // Si la ruta está mal, caemos al placeholder sin romper el layout
+        img.src = EMPTY_SRC;
+        updateState(img);
+      });
+    });
+  };
+
+  setupMenuImages();
 })();

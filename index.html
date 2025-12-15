@@ -53,18 +53,10 @@
 
     <!-- Categorías (chips) -->
     <nav class="cats" aria-label="Categorías">
-      <button class="chip is-active" data-target="#hamburguesas" type="button">
-        🍔 Hamburguesas
-      </button>
-      <button class="chip" data-target="#salchipapas" type="button">
-        🍟 Salchipapas
-      </button>
-      <button class="chip" data-target="#broaster" type="button">
-        🍗 Broaster
-      </button>
-      <button class="chip" data-target="#bebidas" type="button">
-        🥤 Bebidas
-      </button>
+      <button class="chip is-active" data-target="#hamburguesas" type="button">🍔 Hamburguesas</button>
+      <button class="chip" data-target="#salchipapas" type="button">🍟 Salchipapas</button>
+      <button class="chip" data-target="#broaster" type="button">🍗 Broaster</button>
+      <button class="chip" data-target="#bebidas" type="button">🥤 Bebidas</button>
     </nav>
   </header>
 
@@ -110,20 +102,26 @@
 
       <h3 class="subhead">Burguer Tradicional</h3>
       <div class="grid">
-        <article class="card" data-name="hamb carne papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Hamb. Carne</h4>
-            <div class="card__price">S/. 5.00</div>
+
+        <!-- ✅ Hamb. Carne -->
+        <article class="card card--media" data-name="hamb carne casera papas hotdog ensalada salsas">
+          <div class="card__media">
+            <img src="" alt="Hamburguesa de carne" loading="lazy" />
           </div>
-          <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Hamb. Carne</h4>
+              <div class="card__price">S/. 5.00</div>
+            </div>
+            <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+          </div>
         </article>
 
-        <!-- ✅ SOLO ESTE TIENE IMAGEN -->
+        <!-- ✅ Hamb. Pollo -->
         <article class="card card--media" data-name="hamb pollo papas hotdog ensalada salsas">
           <div class="card__media">
             <img src="img/Hamb.Pollo.jpg" alt="Hamburguesa de pollo" loading="lazy" />
           </div>
-
           <div class="card__body">
             <div class="card__top">
               <h4 class="card__name">Hamb. Pollo</h4>
@@ -133,131 +131,229 @@
           </div>
         </article>
 
-        <article class="card" data-name="hamb chorizo papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Hamb. Chorizo</h4>
-            <div class="card__price">S/. 6.00</div>
+        <!-- 🧩 Hamb. Chorizo (LISTO para imagen) -->
+        <article class="card card--media card--auto" data-name="hamb chorizo papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Hamb. Chorizo">
+            <!-- TODO: cambia solo el src por tu imagen -->
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Hamburguesa de chorizo" loading="lazy" />
           </div>
-          <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Hamb. Chorizo</h4>
+              <div class="card__price">S/. 6.00</div>
+            </div>
+            <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="hamb pollo deshilachado papas ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Hamb. Pollo Deshilachado</h4>
-            <div class="card__price">S/. 7.50</div>
+        <!-- 🧩 Hamb. Pollo Deshilachado (LISTO para imagen) -->
+        <article class="card card--media card--auto" data-name="hamb pollo deshilachado papas ensalada tomate salsas">
+          <div class="card__media" data-label="Hamb. Pollo Deshilachado">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Hamburguesa de pollo deshilachado" loading="lazy" />
           </div>
-          <p class="card__desc">(Papas + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Hamb. Pollo Deshilachado</h4>
+              <div class="card__price">S/. 7.50</div>
+            </div>
+            <p class="card__desc">(Papas + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="hamb nuggets papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Hamb. Nuggets</h4>
-            <div class="card__price">S/. 8.00</div>
+        <!-- 🧩 Hamb. Nuggets (LISTO para imagen) -->
+        <article class="card card--media card--auto" data-name="hamb nuggets papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Hamb. Nuggets">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Hamburguesa de nuggets" loading="lazy" />
           </div>
-          <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Hamb. Nuggets</h4>
+              <div class="card__price">S/. 8.00</div>
+            </div>
+            <p class="card__desc">(Papas + Hotdog + Ensalada + Salsas)</p>
+          </div>
         </article>
+
+        <article class="card card--media card--auto" data-name="hamb casera huevo papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Hamb. casera">
+            <img src="img/Hamb. Casera.jpg" alt="Hamburguesa casera" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Hamb. Casera</h4>
+              <div class="card__price">S/. 10.00</div>
+            </div>
+            <p class="card__desc">(Papas + Huevo + Carne Casera + Hotdog + Ensalada + Salsas)</p>
+          </div>
+        </article>
+
       </div>
 
       <h3 class="subhead">Royal Tradicional</h3>
       <div class="grid">
-        <article class="card" data-name="royal carne huevo papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Carne</h4>
-            <div class="card__price">S/. 6.00</div>
+
+        <article class="card card--media card--auto" data-name="royal carne huevo papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Royal de Carne">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal de Carne" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Carne</h4>
+              <div class="card__price">S/. 6.00</div>
+            </div>
+            <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="royal pollo huevo papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Pollo</h4>
-            <div class="card__price">S/. 7.00</div>
+        <article class="card card--media card--auto" data-name="royal pollo huevo papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Royal de Pollo">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal de Pollo" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Pollo</h4>
+              <div class="card__price">S/. 7.00</div>
+            </div>
+            <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="royal chorizo huevo papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Chorizo</h4>
-            <div class="card__price">S/. 7.00</div>
+        <article class="card card--media card--auto" data-name="royal chorizo huevo papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Royal de Chorizo">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal de Chorizo" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Chorizo</h4>
+              <div class="card__price">S/. 7.00</div>
+            </div>
+            <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="royal pollo deshilachado huevo papas ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Pollo Deshilachado</h4>
-            <div class="card__price">S/. 8.50</div>
+        <article class="card card--media card--auto" data-name="royal pollo deshilachado huevo papas ensalada tomate salsas">
+          <div class="card__media" data-label="Royal Pollo Deshilachado">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal de Pollo Deshilachado" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Papas + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Pollo Deshilachado</h4>
+              <div class="card__price">S/. 8.50</div>
+            </div>
+            <p class="card__desc">(Huevo + Papas + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="royal nuggets huevo papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Nuggets</h4>
-            <div class="card__price">S/. 9.00</div>
+        <article class="card card--media card--auto" data-name="royal nuggets huevo papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Royal de Nuggets">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal de Nuggets" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Nuggets</h4>
+              <div class="card__price">S/. 9.00</div>
+            </div>
+            <p class="card__desc">(Huevo + Papas + Hotdog + Ensalada + Salsas)</p>
+          </div>
         </article>
+
       </div>
 
       <h3 class="subhead">Royal Especial</h3>
       <div class="grid">
-        <article class="card" data-name="royal especial carne huevo queso papas hotdog ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Carne</h4>
-            <div class="card__price">S/. 7.50</div>
+
+        <article class="card card--media card--auto" data-name="royal especial carne huevo queso papas hotdog ensalada tomate salsas">
+          <div class="card__media" data-label="Royal Especial Carne">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal Especial de Carne" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Carne</h4>
+              <div class="card__price">S/. 7.50</div>
+            </div>
+            <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="royal especial pollo huevo queso papas hotdog ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Pollo</h4>
-            <div class="card__price">S/. 8.50</div>
+        <article class="card card--media card--auto" data-name="royal especial pollo huevo queso papas hotdog ensalada tomate salsas">
+          <div class="card__media" data-label="Royal Especial Pollo">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal Especial de Pollo" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Pollo</h4>
+              <div class="card__price">S/. 8.50</div>
+            </div>
+            <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="royal especial chorizo huevo queso papas hotdog ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Chorizo</h4>
-            <div class="card__price">S/. 8.50</div>
+        <article class="card card--media card--auto" data-name="royal especial chorizo huevo queso papas hotdog ensalada tomate salsas">
+          <div class="card__media" data-label="Royal Especial Chorizo">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal Especial de Chorizo" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Chorizo</h4>
+              <div class="card__price">S/. 8.50</div>
+            </div>
+            <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="royal especial pollo deshilachado huevo queso papas ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Pollo Deshilachado</h4>
-            <div class="card__price">S/. 10.00</div>
+        <article class="card card--media card--auto" data-name="royal especial pollo deshilachado huevo queso papas ensalada tomate salsas">
+          <div class="card__media" data-label="Royal Especial Pollo Deshilachado">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal Especial de Pollo Deshilachado" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Queso + Papas + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Pollo Deshilachado</h4>
+              <div class="card__price">S/. 10.00</div>
+            </div>
+            <p class="card__desc">(Huevo + Queso + Papas + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card" data-name="royal especial nuggets huevo queso papas hotdog ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Royal de Nuggets</h4>
-            <div class="card__price">S/. 10.50</div>
+        <article class="card card--media card--auto" data-name="royal especial nuggets huevo queso papas hotdog ensalada tomate salsas">
+          <div class="card__media" data-label="Royal Especial Nuggets">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Royal Especial de Nuggets" loading="lazy" />
           </div>
-          <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Royal de Nuggets</h4>
+              <div class="card__price">S/. 10.50</div>
+            </div>
+            <p class="card__desc">(Huevo + Queso + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card card--highlight" data-name="burguer a lo pobre carne huevo platano papas hotdog ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Burguer a lo pobre</h4>
-            <div class="card__price">S/. 10.00</div>
+        <article class="card card--media card--auto card--highlight" data-name="burguer a lo pobre carne huevo platano papas hotdog ensalada tomate salsas">
+          <div class="card__media" data-label="Burguer a lo Pobre">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Burguer a lo pobre" loading="lazy" />
           </div>
-          <p class="card__desc">(Hamb. Carne + Huevo + Plátano + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Burguer a lo pobre</h4>
+              <div class="card__price">S/. 10.00</div>
+            </div>
+            <p class="card__desc">(Hamb. Carne + Huevo + Plátano + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
 
-        <article class="card card--highlight" data-name="super burguer carne nuggets chorizo queso huevo papas hotdog ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Súper Burguer</h4>
-            <div class="card__price">S/. 15.00</div>
+        <!-- ✅ Súper Burguer con imagen -->
+        <article class="card card--media card--highlight" data-name="super burguer carne nuggets chorizo queso huevo papas hotdog ensalada tomate salsas">
+          <div class="card__media">
+            <img src="img/S%C3%BAper%20Burguer.jpg" alt="Súper Burguer" loading="lazy" />
           </div>
-          <p class="card__desc">(Hamb. Carne + Nuggets + Chorizo + Queso + Huevo + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Súper Burguer</h4>
+              <div class="card__price">S/. 15.00</div>
+            </div>
+            <p class="card__desc">(Hamb. Carne + Nuggets + Chorizo + Queso + Huevo + Papas + Hotdog + Ensalada + Tomate + Salsas)</p>
+          </div>
         </article>
+
       </div>
     </section>
 
@@ -269,77 +365,129 @@
       </div>
 
       <div class="grid">
-        <article class="card" data-name="salchipapa tradicional papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Salchipapa Tradicional</h4>
-            <div class="card__price">S/. 6.00</div>
+
+        <article class="card card--media card--auto" data-name="salchipapa tradicional papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Salchipapa Tradicional">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Salchipapa Tradicional" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Salchipapa Tradicional</h4>
+              <div class="card__price">S/. 6.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="salchi burguer carne papas hamburguesa hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Salchi Burguer de Carne</h4>
-            <div class="card__price">S/. 8.00</div>
+        <!-- ✅ Salchi Burguer de Carne con imagen -->
+        <article class="card card--media" data-name="salchi burguer carne papas hamburguesa hotdog ensalada salsas">
+          <div class="card__media">
+            <img src="img/Salchi%20Burguer%20de%20Carne.jpg" alt="Salchi Burguer de Carne" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hamb. Carne + Hotdog + Ensalada + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Salchi Burguer de Carne</h4>
+              <div class="card__price">S/. 8.00</div>
+            </div>
+            <p class="card__desc">Papas + Hamb. Carne + Hotdog + Ensalada + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="salchi burguer pollo papas hamburguesa hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Salchi Burguer de Pollo</h4>
-            <div class="card__price">S/. 8.00</div>
+        <article class="card card--media card--auto" data-name="salchi burguer pollo papas hamburguesa hotdog ensalada salsas">
+          <div class="card__media" data-label="Salchi Burguer de Pollo">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Salchi Burguer de Pollo" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hamb. Pollo + Hotdog + Ensalada + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Salchi Burguer de Pollo</h4>
+              <div class="card__price">S/. 8.00</div>
+            </div>
+            <p class="card__desc">Papas + Hamb. Pollo + Hotdog + Ensalada + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="salchi chorizo papas hamburguesa chorizo hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Salchi Chorizo</h4>
-            <div class="card__price">S/. 8.00</div>
+        <article class="card card--media card--auto" data-name="salchi chorizo papas hamburguesa chorizo hotdog ensalada salsas">
+          <div class="card__media" data-label="Salchi Chorizo">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Salchi Chorizo" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hamb. Chorizo + Hotdog + Ensalada + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Salchi Chorizo</h4>
+              <div class="card__price">S/. 8.00</div>
+            </div>
+            <p class="card__desc">Papas + Hamb. Chorizo + Hotdog + Ensalada + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="salchi cheese papas hotdog ahumado queso ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Salchi Cheese</h4>
-            <div class="card__price">S/. 12.00</div>
+        <!-- ✅ Salchi Cheese con imagen -->
+        <article class="card card--media" data-name="salchi cheese papas hotdog ahumado queso ensalada tomate salsas">
+          <div class="card__media">
+            <img src="img/Salchi%20Cheese.jpg" alt="Salchi Cheese" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog Ahumado + Queso + Ensalada + Tomate + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Salchi Cheese</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog Ahumado + Queso + Ensalada + Tomate + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="salchi a lo pobre papas hotdog ahumado huevo platano ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Salchi a lo Pobre</h4>
-            <div class="card__price">S/. 13.00</div>
+        <!-- ✅ Salchi a lo Pobre con imagen -->
+        <article class="card card--media" data-name="salchi a lo pobre papas hotdog ahumado huevo platano ensalada salsas">
+          <div class="card__media">
+            <img src="img/Salchi%20a%20lo%20Pobre.jpg" alt="Salchi a lo Pobre" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Plátano + Ensalada + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Salchi a lo Pobre</h4>
+              <div class="card__price">S/. 13.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Plátano + Ensalada + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="salchi cheese royal papas hotdog ahumado huevo queso ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Salchi Cheese Royal</h4>
-            <div class="card__price">S/. 14.00</div>
+        <article class="card card--media card--auto" data-name="salchi cheese royal papas hotdog ahumado huevo queso ensalada tomate salsas">
+          <div class="card__media" data-label="Salchi Cheese Royal">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Salchi Cheese Royal" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Queso + Ensalada + Tomate + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Salchi Cheese Royal</h4>
+              <div class="card__price">S/. 14.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Queso + Ensalada + Tomate + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="salchi pig papas hotdog ahumado huevo tocino queso ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">Salchi Pig</h4>
-            <div class="card__price">S/. 16.00</div>
+        <!-- ✅ Salchi Pig con imagen -->
+        <article class="card card--media" data-name="salchi pig papas hotdog ahumado huevo tocino queso ensalada tomate salsas">
+          <div class="card__media">
+            <img src="img/Salchi%20Pig.jpg" alt="Salchi Pig" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Tocino + Queso + Ensalada + Tomate + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Salchi Pig</h4>
+              <div class="card__price">S/. 16.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Tocino + Queso + Ensalada + Tomate + Salsas</p>
+          </div>
         </article>
 
-        <article class="card card--highlight" data-name="la brava papas hotdog ahumado huevo tocino broaster queso ensalada tomate salsas">
-          <div class="card__top">
-            <h4 class="card__name">La Brava</h4>
-            <div class="card__price">S/. 18.00</div>
+        <!-- ✅ La Brava con imagen -->
+        <article class="card card--media card--highlight" data-name="la brava papas hotdog ahumado huevo tocino broaster queso ensalada tomate salsas">
+          <div class="card__media">
+            <img src="img/La%20Brava.jpg" alt="La Brava" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Tocino + Trozos Broaster + Queso + Ensalada + Tomate + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">La Brava</h4>
+              <div class="card__price">S/. 18.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog Ahumado + Huevo + Tocino + Trozos Broaster + Queso + Ensalada + Tomate + Salsas</p>
+          </div>
         </article>
+
       </div>
     </section>
 
@@ -356,56 +504,147 @@
       </div>
 
       <div class="grid">
-        <article class="card" data-name="broaster pecho ala con pecho nuggets pierna entrepierna">
-          <div class="card__top">
-            <h4 class="card__name">Broaster</h4>
-            <div class="card__price">S/. 12.00</div>
+
+        <article class="card card--media card--auto" data-name="pecho broaster papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Pecho Broaster">
+            <img src="img/Pecho%20Broaster.jpg" alt="Pecho Broaster" loading="lazy" />      
+          </div> 
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Pecho Broaster</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
           </div>
-          <p class="card__desc">-Pecho / -Ala con Pecho / -Nuggets / -Pierna / -Entrepierna</p>
         </article>
 
-        <article class="card" data-name="alita broaster papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Alita Broaster</h4>
-            <div class="card__price">S/. 8.00</div>
+        <!-- ✅ Ala con Pecho con imagen -->
+        <article class="card card--media" data-name="ala con pecho broaster papas hotdog ensalada salsas">
+          <div class="card__media">
+            <img src="img/Ala%20con%20Pecho.jpg" alt="Ala con Pecho Broaster" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Ala con Pecho Broaster</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="menudencia broaster papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Menudencia Broaster</h4>
-            <div class="card__price">S/. 10.00</div>
+        <article class="card card--media card--auto" data-name="nuggets broaster papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Nuggets Broaster">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Nuggets Broaster" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Nuggets Broaster</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="patitas broaster papas hotdog ensalada salsas">
-          <div class="card__top">
-            <h4 class="card__name">Patitas Broaster</h4>
-            <div class="card__price">S/. 12.00</div>
+        <article class="card card--media card--auto" data-name="pierna broaster papas hotdog ensalada salsas">
+          <div class="card__media" data-label="Pierna Broaster">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Pierna Broaster" loading="lazy" />
           </div>
-          <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Pierna Broaster</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          </div>
         </article>
+
+        <!-- ✅ Entrepierna con imagen -->
+        <article class="card card--media" data-name="entrepierna broaster papas hotdog ensalada salsas">
+          <div class="card__media">
+            <img src="img/Entrepierna.jpg" alt="Entrepierna Broaster" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Entrepierna Broaster</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          </div>
+        </article>
+
+        <!-- ✅ Alita Broaster con imagen -->
+        <article class="card card--media" data-name="alita broaster papas hotdog ensalada salsas">
+          <div class="card__media">
+            <img src="img/Alita%20Broaster.jpg" alt="Alita Broaster" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Alita Broaster</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          </div>
+        </article>
+
+        <!-- ✅ Menudencia Broaster con imagen -->
+        <article class="card card--media" data-name="menudencia broaster papas hotdog ensalada salsas">
+          <div class="card__media">
+            <img src="img/Menudencia%20Broaster.jpg" alt="Menudencia Broaster" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Menudencia Broaster</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          </div>
+        </article>
+
+        <!-- ✅ Patitas Broaster con imagen -->
+        <article class="card card--media" data-name="patitas broaster papas hotdog ensalada salsas">
+          <div class="card__media">
+            <img src="img/Patitas%20Broaster.jpg" alt="Patitas Broaster" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Patitas Broaster</h4>
+              <div class="card__price">S/. 12.00</div>
+            </div>
+            <p class="card__desc">Papas + Hotdog + Ensalada + Salsas</p>
+          </div>
+        </article>
+
       </div>
 
       <h3 class="subhead">Adicionales</h3>
       <div class="grid">
-        <article class="card" data-name="adicionales hotdog ahumado tocino queso platano hamburguesas">
-          <div class="card__top">
-            <h4 class="card__name">Adicionales</h4>
-            <div class="card__price">S/. 2.00</div>
+
+        <article class="card card--media card--auto" data-name="adicionales hotdog ahumado tocino queso platano hamburguesas">
+          <div class="card__media" data-label="Adicionales">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Adicionales" loading="lazy" />
           </div>
-          <p class="card__desc">Hotdog ahumado / Tocino / Queso / Plátano / hamburguesas</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Adicionales</h4>
+              <div class="card__price">S/. 2.00</div>
+            </div>
+            <p class="card__desc">Hotdog ahumado / Tocino / Queso / Plátano / hamburguesas</p>
+          </div>
         </article>
 
-        <article class="card" data-name="porcion de arroz arroz">
-          <div class="card__top">
-            <h4 class="card__name">Porción de arroz</h4>
-            <div class="card__price">S/. 3.00</div>
+        <article class="card card--media card--auto" data-name="porcion de arroz arroz">
+          <div class="card__media" data-label="Porción de arroz">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Porción de arroz" loading="lazy" />
           </div>
-          <p class="card__desc">Porción adicional</p>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Porción de arroz</h4>
+              <div class="card__price">S/. 3.00</div>
+            </div>
+            <p class="card__desc">Porción adicional</p>
+          </div>
         </article>
+
       </div>
     </section>
 
@@ -418,106 +657,258 @@
 
       <h3 class="subhead">Refresco de maracuyá</h3>
       <div class="grid">
-        <article class="card" data-name="refresco maracuya jarra 1 litro">
-          <div class="card__top">
-            <h4 class="card__name">Jarra 1 litro</h4>
-            <div class="card__price">S/. 5.00</div>
+
+        <article class="card card--media card--auto" data-name="refresco maracuya jarra 1 litro">
+          <div class="card__media" data-label="Refresco 1 litro">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Refresco de maracuyá 1 litro" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Jarra 1 litro</h4>
+              <div class="card__price">S/. 5.00</div>
+            </div>
           </div>
         </article>
 
-        <article class="card" data-name="refresco maracuya jarra 1/2 litro">
-          <div class="card__top">
-            <h4 class="card__name">Jarra 1/2 litro</h4>
-            <div class="card__price">S/. 3.00</div>
+        <article class="card card--media card--auto" data-name="refresco maracuya jarra 1/2 litro">
+          <div class="card__media" data-label="Refresco 1/2 litro">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Refresco de maracuyá 1/2 litro" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Jarra 1/2 litro</h4>
+              <div class="card__price">S/. 3.00</div>
+            </div>
           </div>
         </article>
 
-        <article class="card" data-name="refresco maracuya vaso">
-          <div class="card__top">
-            <h4 class="card__name">Vaso</h4>
-            <div class="card__price">S/. 1.50 - 2.00</div>
+        <article class="card card--media card--auto" data-name="refresco maracuya vaso">
+          <div class="card__media" data-label="Refresco Vaso">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Refresco de maracuyá vaso" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Vaso</h4>
+              <div class="card__price">S/. 1.50 - 2.00</div>
+            </div>
           </div>
         </article>
+
       </div>
 
       <h3 class="subhead">Infusiones</h3>
       <div class="grid">
-        <article class="card" data-name="infusion te anis manzanilla">
-          <div class="card__top">
-            <h4 class="card__name">Té / Anís / Manzanilla</h4>
-            <div class="card__price">S/. 1.50</div>
+
+        <article class="card card--media card--auto" data-name="infusion te anis manzanilla">
+          <div class="card__media" data-label="Té / Anís / Manzanilla">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Té / Anís / Manzanilla" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Té / Anís / Manzanilla</h4>
+              <div class="card__price">S/. 1.50</div>
+            </div>
           </div>
         </article>
 
-        <article class="card" data-name="cafe">
-          <div class="card__top">
-            <h4 class="card__name">Café</h4>
-            <div class="card__price">S/. 2.00</div>
+        <article class="card card--media card--auto" data-name="cafe">
+          <div class="card__media" data-label="Café">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Café" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Café</h4>
+              <div class="card__price">S/. 2.00</div>
+            </div>
           </div>
         </article>
 
-        <article class="card" data-name="cafe con leche">
-          <div class="card__top">
-            <h4 class="card__name">Café con leche</h4>
-            <div class="card__price">S/. 2.00</div>
+        <article class="card card--media card--auto" data-name="cafe con leche">
+          <div class="card__media" data-label="Café con leche">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Café con leche" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h4 class="card__name">Café con leche</h4>
+              <div class="card__price">S/. 2.00</div>
+            </div>
           </div>
         </article>
+
       </div>
 
       <h3 class="subhead">Gaseosas</h3>
       <div class="grid">
-        <article class="card" data-name="inca kola coca cola 1 litro">
-          <div class="card__top"><h4 class="card__name">Inca kola / Coca cola 1 litro</h4></div>
-          <p class="card__desc">Disponible</p>
+
+        <article class="card card--media card--auto" data-name="inca kola coca cola 1 litro">
+          <div class="card__media" data-label="Inca / Coca 1L">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Inca kola / Coca cola 1 litro" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top"><h4 class="card__name">Inca kola / Coca cola 1 litro</h4></div>
+            <p class="card__desc">Disponible</p>
+          </div>
         </article>
-        <article class="card" data-name="pepsi 1 1/2 litro">
-          <div class="card__top"><h4 class="card__name">Pepsi 1 1/2 litro</h4></div>
-          <p class="card__desc">Disponible</p>
+
+        <article class="card card--media card--auto" data-name="pepsi 1 1/2 litro">
+          <div class="card__media" data-label="Pepsi 1.5L">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Pepsi 1 1/2 litro" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top"><h4 class="card__name">Pepsi 1 1/2 litro</h4></div>
+            <p class="card__desc">Disponible</p>
+          </div>
         </article>
-        <article class="card" data-name="concordia 1 1/2 litro">
-          <div class="card__top"><h4 class="card__name">Concordia 1 1/2 litro</h4></div>
-          <p class="card__desc">Disponible</p>
+
+        <article class="card card--media card--auto" data-name="concordia 1 1/2 litro">
+          <div class="card__media" data-label="Concordia 1.5L">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Concordia 1 1/2 litro" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top"><h4 class="card__name">Concordia 1 1/2 litro</h4></div>
+            <p class="card__desc">Disponible</p>
+          </div>
         </article>
-        <article class="card" data-name="inca kola coca cola 3 litros">
-          <div class="card__top"><h4 class="card__name">Inca kola / Coca cola 3 litros</h4></div>
-          <p class="card__desc">Disponible</p>
+
+        <article class="card card--media card--auto" data-name="inca kola coca cola 3 litros">
+          <div class="card__media" data-label="Inca / Coca 3L">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Inca kola / Coca cola 3 litros" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top"><h4 class="card__name">Inca kola / Coca cola 3 litros</h4></div>
+            <p class="card__desc">Disponible</p>
+          </div>
         </article>
-        <article class="card" data-name="concordia 3 litros">
-          <div class="card__top"><h4 class="card__name">Concordia 3 litros</h4></div>
-          <p class="card__desc">Disponible</p>
+
+        <article class="card card--media card--auto" data-name="concordia 3 litros">
+          <div class="card__media" data-label="Concordia 3L">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Concordia 3 litros" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top"><h4 class="card__name">Concordia 3 litros</h4></div>
+            <p class="card__desc">Disponible</p>
+          </div>
         </article>
-        <article class="card" data-name="gatorade">
-          <div class="card__top"><h4 class="card__name">Gatorade</h4></div>
-          <p class="card__desc">Disponible</p>
+
+        <article class="card card--media card--auto" data-name="gatorade">
+          <div class="card__media" data-label="Gatorade">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Gatorade" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top"><h4 class="card__name">Gatorade</h4></div>
+            <p class="card__desc">Disponible</p>
+          </div>
         </article>
-        <article class="card" data-name="volt">
-          <div class="card__top"><h4 class="card__name">Volt</h4></div>
-          <p class="card__desc">Disponible</p>
+
+        <article class="card card--media card--auto" data-name="volt">
+          <div class="card__media" data-label="Volt">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Volt" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <div class="card__top"><h4 class="card__name">Volt</h4></div>
+            <p class="card__desc">Disponible</p>
+          </div>
         </article>
+
       </div>
 
       <h3 class="subhead">Jugos</h3>
       <div class="grid">
-        <article class="card" data-name="jugo papaya"><div class="card__top"><h4 class="card__name">Papaya</h4></div></article>
-        <article class="card" data-name="jugo pina"><div class="card__top"><h4 class="card__name">Piña</h4></div></article>
-        <article class="card" data-name="jugo surtido"><div class="card__top"><h4 class="card__name">Surtido</h4></div></article>
-        <article class="card" data-name="jugo fresa"><div class="card__top"><h4 class="card__name">Fresa</h4></div></article>
-        <article class="card" data-name="jugo naranja"><div class="card__top"><h4 class="card__name">Naranja</h4></div></article>
-        <article class="card" data-name="jugo papaya con pina"><div class="card__top"><h4 class="card__name">Papaya con piña</h4></div></article>
+
+        <article class="card card--media card--auto" data-name="jugo papaya">
+          <div class="card__media" data-label="Jugo Papaya">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Jugo de papaya" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Papaya</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="jugo pina">
+          <div class="card__media" data-label="Jugo Piña">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Jugo de piña" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Piña</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="jugo surtido">
+          <div class="card__media" data-label="Jugo Surtido">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Jugo surtido" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Surtido</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="jugo fresa">
+          <div class="card__media" data-label="Jugo Fresa">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Jugo de fresa" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Fresa</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="jugo naranja">
+          <div class="card__media" data-label="Jugo Naranja">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Jugo de naranja" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Naranja</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="jugo papaya con pina">
+          <div class="card__media" data-label="Papaya con piña">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Jugo de papaya con piña" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Papaya con piña</h4></div></div>
+        </article>
+
       </div>
 
       <h3 class="subhead">Jugos especiales</h3>
       <div class="grid">
-        <article class="card" data-name="jugo especial"><div class="card__top"><h4 class="card__name">Especial</h4></div></article>
-        <article class="card" data-name="jugo papaya con leche"><div class="card__top"><h4 class="card__name">Papaya con leche</h4></div></article>
-        <article class="card" data-name="jugo fresa con leche"><div class="card__top"><h4 class="card__name">Fresa con leche</h4></div></article>
+
+        <article class="card card--media card--auto" data-name="jugo especial">
+          <div class="card__media" data-label="Jugo Especial">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Jugo especial" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Especial</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="jugo papaya con leche">
+          <div class="card__media" data-label="Papaya con leche">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Papaya con leche" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Papaya con leche</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="jugo fresa con leche">
+          <div class="card__media" data-label="Fresa con leche">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Fresa con leche" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Fresa con leche</h4></div></div>
+        </article>
+
       </div>
 
       <h3 class="subhead">Postres</h3>
       <div class="grid">
-        <article class="card" data-name="postre queque vainilla"><div class="card__top"><h4 class="card__name">Queque de vainilla</h4></div></article>
-        <article class="card" data-name="postre queque marmoleado"><div class="card__top"><h4 class="card__name">Queque marmoleado</h4></div></article>
-        <article class="card" data-name="postre torta chocolate"><div class="card__top"><h4 class="card__name">Torta de chocolate</h4></div></article>
+
+        <article class="card card--media card--auto" data-name="postre queque vainilla">
+          <div class="card__media" data-label="Queque de vainilla">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Queque de vainilla" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Queque de vainilla</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="postre queque marmoleado">
+          <div class="card__media" data-label="Queque marmoleado">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Queque marmoleado" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Queque marmoleado</h4></div></div>
+        </article>
+
+        <article class="card card--media card--auto" data-name="postre torta chocolate">
+          <div class="card__media" data-label="Torta de chocolate">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Torta de chocolate" loading="lazy" />
+          </div>
+          <div class="card__body"><div class="card__top"><h4 class="card__name">Torta de chocolate</h4></div></div>
+        </article>
+
       </div>
     </section>
 
