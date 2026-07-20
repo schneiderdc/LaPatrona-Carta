@@ -88,7 +88,11 @@
       const media = img.closest(".card__media");
       if (!card || !media) return;
 
-      const hasRealImage = img.complete && img.naturalWidth > 1 && img.src !== EMPTY_SRC;
+      // Revisamos la ruta configurada directamente.
+      // No usamos naturalWidth porque las imágenes lazy están dentro
+      // de un contenedor oculto y el navegador todavía no las carga.
+      const configuredSrc = img.getAttribute("src") || "";
+      const hasRealImage = configuredSrc !== "" && configuredSrc !== EMPTY_SRC;
 
       if (hasRealImage) {
         card.classList.add("has-img");
