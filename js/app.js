@@ -117,5 +117,70 @@
     });
   };
 
+  // ===== Visor ampliado de imágenes =====
+  const setupImageLightbox = () => {
+    const overlay = document.createElement("div");
+    overlay.className = "image-lightbox";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", "Imagen ampliada del plato");
+    overlay.innerHTML = `
+      <button class="image-lightbox__close" type="button" aria-label="Cerrar imagen">✕</button>
+      <div class="image-lightbox__content">
+        <img class="image-lightbox__img" src="" alt="" />
+        <p class="image-lightbox__hint">Toca la imagen para cerrar</p>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const enlargedImg = overlay.querySelector(".image-lightbox__img");
+    const closeBtn = overlay.querySelector(".image-lightbox__close");
+    let lastFocusedElement = null;
+
+    const openLightbox = (img) => {
+      const src = img.getAttribute("src") || "";
+      if (!src || src === EMPTY_SRC) return;
+
+      lastFocusedElement = img;
+      enlargedImg.src = src;
+      enlargedImg.alt = img.alt || "Imagen ampliada del plato";
+      overlay.classList.add("is-open");
+      document.body.classList.add("lightbox-open");
+      closeBtn.focus();
+    };
+
+    const closeLightbox = () => {
+      if (!overlay.classList.contains("is-open")) return;
+
+      overlay.classList.remove("is-open");
+      document.body.classList.remove("lightbox-open");
+      enlargedImg.src = "";
+      lastFocusedElement?.focus();
+    };
+
+    document.querySelectorAll(".card__media img").forEach(img => {
+      img.tabIndex = 0;
+      img.setAttribute("role", "button");
+      img.setAttribute("aria-label", `${img.alt || "Imagen del plato"}. Toca para ampliar`);
+
+      img.addEventListener("click", () => openLightbox(img));
+      img.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(img);
+        }
+      });
+    });
+
+    overlay.addEventListener("click", closeLightbox);
+    closeBtn.addEventListener("click", closeLightbox);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLightbox();
+    });
+  };
+
   setupMenuImages();
+  setupImageLightbox();
 })();
